@@ -19,10 +19,8 @@ jobs:
       - name: Check pipeline
         run: |
           .\pipeline.bat
-        continue-on-error: false
 
       - name: Run hello.exe
-        if: always()
         run: |
           if (!(Test-Path -Path .\hello.exe)) { throw "Build failed, hello.exe not found!" }
 
