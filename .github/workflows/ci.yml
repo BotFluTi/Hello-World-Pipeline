@@ -24,7 +24,7 @@ jobs:
 
       - name: Build hello.asm
         run: |
-          nasm -f win64 hello.asm -o hello.obj
+          nasm -f win64 hello.asm
           gcc -o hello.exe hello.obj -nostdlib -lkernel32
 
       - name: Run hello.exe
