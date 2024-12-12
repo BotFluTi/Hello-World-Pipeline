@@ -16,7 +16,13 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
+      - name: Check pipeline
+        run: |
+          .\pipeline.bat
+        continue-on-error: false
+
       - name: Run hello.exe
+        if: always()
         run: |
           if (!(Test-Path -Path .\hello.exe)) { throw "Build failed, hello.exe not found!" }
 
