@@ -18,4 +18,5 @@ jobs:
 
       - name: Run hello.exe
         run: |
-          .\hello.exe
+          if (!(Test-Path -Path .\hello.exe)) { throw "Build failed, hello.exe not found!" }
+

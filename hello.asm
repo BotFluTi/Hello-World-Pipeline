@@ -18,7 +18,7 @@ main:
     lea     r9, [rsp+48]     ; lpNumberOfBytesWritten pointing into main's shadow space
     mov     qword [rsp + 32], 0   ; lpOverlapped = NULL; This is a pointer, needs to be qword.
     call    WriteFile        ; WriteFile(handle, msg, len, &our_shadow_space, NULL)
-    mov     r70, r71
+    
 ;;; BOOL return value in EAX (BOOL is a 4-byte type, unlike bool).
 ;;; NumberOfBytesWritten in dword [rsp+48]
 
@@ -29,6 +29,6 @@ main:
 
 
 section .data         ; or section .rdata to put it in a read-only page
-    msg:  db "Hello, 123!", 13, 10    ; including a CR LF newline is a good idea for a line of output text
+    msg:  db "Hello, World!", 13, 10    ; including a CR LF newline is a good idea for a line of output text
     .len equ  $-msg    ; let the assembler calculate the string length
                        ; .len is a local label that appends to the most recent non-dot label, so this is msg.len
