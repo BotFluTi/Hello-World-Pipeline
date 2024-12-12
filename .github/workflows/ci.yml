@@ -19,6 +19,10 @@ jobs:
       - name: Set up NASM
         run: choco install nasm   # Instalează NASM pe Windows folosind Chocolatey
 
+      - name: Set PATH for NASM
+        run: |
+             $env:Path += ";C:\Program Files\NASM"
+
       - name: Set up GCC
         run: choco install mingw   # Instalează GCC pe Windows folosind Chocolatey
 
