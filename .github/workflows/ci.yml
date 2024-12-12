@@ -1,0 +1,32 @@
+name: Build and Test Assembly
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest   # Setează runner-ul pe Windows
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up NASM
+        run: choco install nasm   # Instalează NASM pe Windows folosind Chocolatey
+
+      - name: Set up GCC
+        run: choco install mingw   # Instalează GCC pe Windows folosind Chocolatey
+
+      - name: Build hello.asm
+        run: |
+          nasm -f win64 hello.asm -o hello.obj
+          gcc -o hello.exe hello.obj -nostdlib -lkernel32
+
+      - name: Run hello.exe
+        run: |
+          .\hello.exe
