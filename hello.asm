@@ -18,7 +18,7 @@ main:
     lea     r9, [rsp+48]     ; lpNumberOfBytesWritten pointing into main's shadow space
     mov     qword [rsp + 32], 0   ; lpOverlapped = NULL; This is a pointer, needs to be qword.
     call    WriteFile        ; WriteFile(handle, msg, len, &our_shadow_space, NULL)
-
+    ;mov r70, r71 
 ;;; BOOL return value in EAX (BOOL is a 4-byte type, unlike bool).
 ;;; NumberOfBytesWritten in dword [rsp+48]
 
