@@ -22,3 +22,10 @@ Fișierul pipeline.bat este un script batch care automatizează procesul de comp
     Testarea output-ului pentru a verifica dacă este corect (așteptând mesajul "Hello, World!").
     
 .\pipeline.bat  ; testare intreg proces local
+
+Acest repository este configurat să folosească un self-hosted runner pentru execuția workflow-urilor GitHub Actions. Un runner self-hosted permite rularea workflow-urilor pe mașina sau serverul nostru, oferind mai mult control asupra mediului de execuție.
+Această comandă pornește runner-ul ca un serviciu de fundal. Odată pornit, runner-ul va prelua automat job-urile asignate de GitHub.
+.\svc.sh start
+
+deschis ca si terminal:
+./run.cmd
