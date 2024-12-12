@@ -20,9 +20,9 @@ for /f "tokens=* delims=" %%A in ('hello.exe') do set output=%%A
 set expected=Hello, World!
 
 :: Step 4: Test Output
-echo Output: %output%
 if "%output%"=="%expected%" (
     echo Test passed!
+    echo Output: %output%
     exit /b 0
 ) else (
     echo Test failed. Output was: %output%
